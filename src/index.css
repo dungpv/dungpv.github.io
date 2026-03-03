@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-surface-950 text-slate-200 font-sans antialiased;
+  }
+
+  ::selection {
+    @apply bg-accent-500/30 text-accent-400;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-surface-900;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-accent-600/60 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-accent-500;
+  }
+}
+
+@layer components {
+  .section-heading {
+    @apply text-2xl font-semibold tracking-tight text-slate-100 mb-2;
+  }
+
+  .section-subheading {
+    @apply text-sm text-muted uppercase tracking-widest font-mono mb-8;
+  }
+
+  .card {
+    @apply bg-surface-800 border border-slate-700/50 rounded-xl p-6
+           transition-all duration-300
+           hover:border-accent-500/40 hover:shadow-[0_0_30px_rgba(14,165,233,0.08)];
+  }
+
+  .tag {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-mono
+           bg-accent-500/10 text-accent-400 border border-accent-500/20
+           transition-colors duration-200 hover:bg-accent-500/20;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 rounded-lg
+           bg-accent-500 hover:bg-accent-400 text-white text-sm font-semibold
+           transition-all duration-200 shadow-[0_0_20px_rgba(14,165,233,0.25)]
+           hover:shadow-[0_0_30px_rgba(14,165,233,0.45)] active:scale-95;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 rounded-lg
+           border border-slate-600 hover:border-accent-500/60
+           text-slate-300 hover:text-accent-400 text-sm font-medium
+           transition-all duration-200 active:scale-95;
+  }
+
+  .nav-link {
+    @apply text-sm text-muted hover:text-slate-200 transition-colors duration-200
+           relative after:absolute after:bottom-0 after:left-0 after:w-0
+           after:h-px after:bg-accent-500 after:transition-all after:duration-300
+           hover:after:w-full;
+  }
+}
+
+@layer utilities {
+  .animate-delay-100 { animation-delay: 100ms; }
+  .animate-delay-200 { animation-delay: 200ms; }
+  .animate-delay-300 { animation-delay: 300ms; }
+  .animate-delay-400 { animation-delay: 400ms; }
+  .animate-delay-500 { animation-delay: 500ms; }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-slate-100 via-accent-400 to-accent-500
+           bg-clip-text text-transparent;
+  }
+
+  .glow-accent {
+    box-shadow: 0 0 40px rgba(14, 165, 233, 0.2);
+  }
+}
